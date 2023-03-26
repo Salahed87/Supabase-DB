@@ -27,7 +27,7 @@ export default function App() {
             id="decription"
             ></Form.Control>
             <br />
-            <Button>Create Product</Button>
+            <Button>Create Product in supabase DB</Button>
             </Col>
 
           
