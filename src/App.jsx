@@ -1,6 +1,20 @@
 import { Navbar , Container, Nav, Row, Form , Col, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from "react";
 export default function App() {
+
+  // useStates
+  const [name,setName] = useState('')
+  const [description,setDescription] = useState('')
+
+  // useEffect
+
+  //func
+  const handleSubmit = (e) => {
+    e.pervent.Defalut()
+
+  }
+  console.log(name,description)
   return (
     <div>
       <Navbar>
@@ -20,17 +34,24 @@ export default function App() {
           <Form.Control 
             type="text"
             id="name"
+            onChange={(e)=> setName(e.target.value)}
             ></Form.Control>
           <Form.Label> Product Description</Form.Label>
           <Form.Control 
             type="text"
-            id="decription"
+            id="description"
+            onChange={(e)=> setDescription(e.target.value)}
             ></Form.Control>
             <br />
             <Button>Create Product in supabase DB</Button>
             </Col>
 
           
+        </Row>
+        <hr />
+        <h3>Current Database items</h3>
+        <Row xs={1} lg={3}>
+
         </Row>
       </Container>
 
