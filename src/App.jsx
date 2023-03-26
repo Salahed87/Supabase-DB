@@ -1,20 +1,31 @@
 import { Navbar , Container, Nav, Row, Form , Col, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
+import { supabase } from "../supabase";
 export default function App() {
 
   // useStates
   const [name,setName] = useState('')
   const [description,setDescription] = useState('')
+  const [products, setProducts] = useState([])
 
   // useEffect
+  useEffect(()=> {
+    const getProducts = async () => {
+      const {data,error} = await supabase
+      .from('products')
+      .select()
+      if(error) {
+        alert(error)
+      } else
+      setProducts(data);
 
-  //func
-  const handleSubmit = (e) => {
-    e.pervent.Defalut()
+    }
+    getProducts()
+  },[])
 
-  }
+  
   console.log(name,description)
   return (
     <div>
@@ -52,9 +63,11 @@ export default function App() {
         <hr />
         <h3>Current Database items</h3>
         <Row xs={1} lg={4} className="g-4">
+          {products.map(product => (
           <Col>
-         <ProductCard/>
+            <ProductCard product={product}/>
           </Col>
+          ))}
      
 
         </Row>
