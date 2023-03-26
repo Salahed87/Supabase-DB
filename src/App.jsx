@@ -1,6 +1,7 @@
 import { Navbar , Container, Nav, Row, Form , Col, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from "react";
+import ProductCard from "./ProductCard";
 export default function App() {
 
   // useStates
@@ -51,6 +52,9 @@ export default function App() {
         <hr />
         <h3>Current Database items</h3>
         <Row xs={1} lg={3}>
+          <Col>
+          <ProductCard/>
+          </Col>
 
         </Row>
       </Container>
