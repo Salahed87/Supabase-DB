@@ -51,10 +51,11 @@ export default function App() {
         </Row>
         <hr />
         <h3>Current Database items</h3>
-        <Row xs={1} lg={3}>
+        <Row xs={1} lg={4} className="g-4">
           <Col>
-          <ProductCard/>
+         <ProductCard/>
           </Col>
+     
 
         </Row>
       </Container>
