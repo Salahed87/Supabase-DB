@@ -25,6 +25,21 @@ export default function App() {
     getProducts()
   },[])
 
+  // funs 
+  const addProduct = async () => {
+    const {data , error}= await supabase
+    .from('products')
+    .insert({
+      name:name,
+      description:description
+    })
+    console.log(data)
+    window.location.reload()
+    if(error) {
+      alert(error)
+    }
+  }
+
   
   console.log(name,description)
   return (
@@ -55,7 +70,7 @@ export default function App() {
             onChange={(e)=> setDescription(e.target.value)}
             ></Form.Control>
             <br />
-            <Button>Create Product in supabase DB</Button>
+            <Button onClick={()=> addProduct()}>Create Product in supabase DB</Button>
             </Col>
 
           
